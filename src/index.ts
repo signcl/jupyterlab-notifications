@@ -35,20 +35,20 @@ function displayNotification(
     body: ''
   };
   const title = failedExecution
-    ? `${notebookName} Failed!`
-    : `${notebookName} Completed!`;
+    ? `${notebookName} 失败！`
+    : `${notebookName} 完成！`;
   let message = '';
 
   if (failedExecution) {
     message = error ? `${error.errorName} ${error.errorValue}` : '';
   } else if (lastCellOnly) {
-    message = `Total Duration: ${cellDuration}`;
+    message = `总用时：${cellDuration}`;
   } else if (reportCellNumber && reportCellExecutionTime) {
-    message = `Cell[${cellNumber}] Duration: ${cellDuration}`;
+    message = `单元格[${cellNumber}] 用时：${cellDuration}`;
   } else if (reportCellNumber) {
-    message = `Cell Number: ${cellNumber}`;
+    message = `单元格数：${cellNumber}`;
   } else if (reportCellExecutionTime) {
-    message = `Cell Duration: ${cellDuration}`;
+    message = `单元格用时：${cellDuration}`;
   }
 
   notificationPayload.body = message;
